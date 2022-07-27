@@ -7,5 +7,6 @@
 *.php diff=php
 
 *.js linguist-vendored
+*.css linguist-vendored
 /.github export-ignore
 CHANGELOG.md export-ignore
