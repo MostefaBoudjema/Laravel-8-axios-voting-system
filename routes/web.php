@@ -10,7 +10,8 @@ Route::get('/home', function () {
     return redirect('/user/Ripcheck');
 });
 Auth::routes();
-
+Route::post('/vote', [App\Http\Controllers\admin\RipcheckController::class, 'vote'])->name('Ripcheck.vote');
+Route::post('/api/votechange', [App\Http\Controllers\admin\VoteController::class, 'votechange'])->name('votechange');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => ['auth']], function () {

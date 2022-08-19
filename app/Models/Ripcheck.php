@@ -30,4 +30,24 @@ class Ripcheck extends Model
     {
         return $this->belongsTo(User::class, 'rip_user_id');
     }
+
+    // public function vote()
+    // {
+    //     return $this->belongsTo(Vote::class);
+    // }
+
+    public function Votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
+
+    public function GetVote($rip = '')
+    {
+        if (empty($rip[0]['ripcheck_id'])) return '0';
+        return count(Vote::where('ripcheck_id', $rip[0]['ripcheck_id'])->where('sign', "1")
+            ->get()
+            ->toArray()) - count(Vote::where('ripcheck_id', $rip[0]['ripcheck_id'])->where('sign', "-1")
+            ->get()
+            ->toArray());
+    }
 }

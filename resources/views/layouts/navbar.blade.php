@@ -15,12 +15,12 @@
                 <li> <a class="nav-link" href="{{ route('user.Ripcheck.index') }}">
                         {{ __('Rip') }}
                     </a></li>
-                <li> <a class="nav-link" href="{{ route('user.Ripcheck.trusted') }}">
+                {{-- <li> <a class="nav-link" href="{{ route('user.Ripcheck.trusted') }}">
                         {{ __('Trusted') }}
                     </a></li>
                 <li> <a class="nav-link" href="{{ route('user.Ripcheck.fake') }}">
                         {{ __('Black List') }}
-                    </a></li>
+                    </a></li> --}}
             </ul>
 
             <!-- Right Side Of Navbar -->

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Models\ripcheck;
 
+use App\Models\Ripcheck;
 use Illuminate\Http\Request;
 use App\Http\Requests\RipRequest;
 use Illuminate\Support\Facades\DB;
@@ -19,23 +19,39 @@ class RipcheckController extends Controller
      */
     public function index()
     {
-        $Ripchecks = Ripcheck::orderBy('rip_status', 'asc')
-        ->orderBy('id', 'asc')
-        ->paginate(10);
-        return view('admin.Ripcheck.index')->with('Ripchecks', $Ripchecks);
+        $Ripchecks = Ripcheck::select('ripchecks.*', 'votes.sign', 'users.name')
+            ->leftJoin('votes', function ($join) {
+                $join->on('ripchecks.id', '=', 'votes.ripcheck_id');
+                $join->where('votes.user_id', Auth::user()->id);
+            })
+            ->leftJoin('users', function ($join) {
+                $join->on('ripchecks.rip_user_id', '=', 'users.id');
+            })
+            ->orderBy('rip_status', 'asc')
+            ->orderBy('ripchecks.id', 'asc')
+            ->paginate(10);
+        return view('admin.Ripcheck.index', compact('Ripchecks'));
     }
+    // public function trustedOld()
+    // {
+    //     $Ripchecks = Ripcheck::where('rip_status', '=', 0)
+    //         ->orderBy('id', 'asc')
+    //         ->paginate(10);
+    //     return view('admin.Ripcheck.index')->with('Ripchecks', $Ripchecks);
+    // }
     public function trusted()
     {
+        // $trusted= Ripcheck->GetVote();
         $Ripchecks = Ripcheck::where('rip_status', '=', 0)
-        ->orderBy('id', 'asc')
-        ->paginate(10);
-        return view('admin.Ripcheck.index')->with('Ripchecks', $Ripchecks);
+            ->orderBy('id', 'asc')
+            ->paginate(10);
+        return view('admin.Ripcheck.index', compact('Ripchecks'));
     }
     public function fake()
     {
         $Ripchecks = Ripcheck::whereIn('rip_status', [1, 2])
-        ->orderBy('id', 'asc')
-        ->paginate(10);
+            ->orderBy('id', 'asc')
+            ->paginate(10);
         return view('admin.Ripcheck.index')->with('Ripchecks', $Ripchecks);
     }
 
@@ -43,10 +59,10 @@ class RipcheckController extends Controller
     {
         $query = $request->input('query');
         $Ripchecks = Ripcheck::where('rip_number', 'LIKE', "%$query%")
-        ->orWhere('rip_name', 'LIKE', "%$query%")
-        ->orWhere('rip_email', 'LIKE', "%$query%")
-        ->orderBy('id', 'asc')
-        ->paginate(10);
+            ->orWhere('rip_name', 'LIKE', "%$query%")
+            ->orWhere('rip_email', 'LIKE', "%$query%")
+            ->orderBy('id', 'asc')
+            ->paginate(10);
         return view('admin.Ripcheck.index', compact('Ripchecks'));
     }
 
@@ -87,6 +103,13 @@ class RipcheckController extends Controller
             throw $th;
         }
         return redirect('/user/Ripcheck')->with('error', 'Opps! RIP Fail to Create!');
+    }
+    public function vote($id)
+    {
+        error_log($id);
+        // $rip_id = RipRequest::find($id);
+        // $userid = RipRequest::find($userid);
+
     }
 
     /**

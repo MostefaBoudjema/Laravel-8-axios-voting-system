@@ -16,8 +16,8 @@ class RipcheckSeeder extends Seeder
     {
 
         $items = [
-            ['rip_number' => '00799999000079999900', 'rip_name' => '', 'rip_phone' => '', 'rip_email' => '', 'rip_status' => 0, 'rip_user_id' => 1,],
-            ['rip_number' => '00799999000079999901', 'rip_name' => '', 'rip_phone' => '', 'rip_email' => '', 'rip_status' => 0, 'rip_user_id' => 1,],
+            ['rip_number' => '00799999000079999900', 'rip_name' => '', 'rip_phone' => '', 'rip_email' => '', 'rip_status' => 0, 'rip_user_id' => 1],
+            ['rip_number' => '00799999000079999901', 'rip_name' => '', 'rip_phone' => '', 'rip_email' => '', 'rip_status' => 0, 'rip_user_id' => 1],
             ['rip_number' => '00799999000903064580', 'rip_name' => 'Khatir benyamine', 'rip_phone' => '0777350213', 'rip_email' => 'Benyamine84@hotmail.fr', 'rip_status' => 1, 'rip_user_id' => 1],
             ['rip_number' => '00799999001897898229', 'rip_name' => ' pay sera dzair star', 'rip_phone' => '', 'rip_email' => '', 'rip_status' => 1, 'rip_user_id' => 1],
             ['rip_number' => '00799999000619570149', 'rip_name' => 'Rachid Bensaid', 'rip_phone' => '0673224354', 'rip_email' => ' didine2mahboul@yahoo.fr', 'rip_status' => 1, 'rip_user_id' => 1],
@@ -28,7 +28,9 @@ class RipcheckSeeder extends Seeder
             ['rip_number' => '00799999001024969136', 'rip_name' => 'Ude Cla', 'rip_phone' => '0669026729', 'rip_email' => 'Mother500@hotmail.fr', 'rip_status' => 1, 'rip_user_id' => 1],
             ['rip_number' => '00799999002600528884', 'rip_name' => 'BEN MESLI YACINE', 'rip_phone' => '', 'rip_email' => '', 'rip_status' => 1, 'rip_user_id' => 1],
             ['rip_number' => '00799999002368909762', 'rip_name' => 'Said younsi', 'rip_phone' => '0540950881', 'rip_email' => '', 'rip_status' => 1, 'rip_user_id' => 1],
-            ['rip_number' => '00799999002429688895', 'rip_name' => 'ayoub Touati', 'rip_phone' => '0655190052/0672373076/0783967843', 'rip_email' => '', 'rip_status' => 1, 'rip_user_id' => 1],
+            ['rip_number' => '00799999002429688895', 'rip_name' => 'ayoub Touati', 'rip_phone' => '0655190052', 'rip_email' => '', 'rip_status' => 1, 'rip_user_id' => 1],
+            // ['rip_number' => '00799999002429688895', 'rip_name' => 'ayoub Touati', 'rip_phone' => '0655190052/0672373076/0783967843', 'rip_email' => '', 'rip_status' => 1, 'rip_user_id' => 1],
+            ['rip_number' => '00799999002686121781', 'rip_name' => 'PayMax Algerie Tm', 'rip_phone' => '077126925', 'rip_email' => '', 'rip_status' => 1, 'rip_user_id' => 1],
             ['rip_number' => '00799999002877269205', 'rip_name' => '', 'rip_phone' => '', 'rip_email' => '', 'rip_status' => 1, 'rip_user_id' => 1],
             ['rip_number' => '00799999000195904704', 'rip_name' => '', 'rip_phone' => '', 'rip_email' => '', 'rip_status' => 1, 'rip_user_id' => 1],
             ['rip_number' => '00799999001452419133', 'rip_name' => '', 'rip_phone' => '', 'rip_email' => '', 'rip_status' => 1, 'rip_user_id' => 1],

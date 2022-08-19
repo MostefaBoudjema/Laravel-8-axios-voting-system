@@ -46,17 +46,22 @@ class User extends Authenticatable
     public function isAdmin()
     {
         // return $this->role_id ;:
-        if($this->role_id == '1') return true;
-        return  false ;
-    }  
+        if ($this->role_id == '1') return true;
+        return  false;
+    }
     public function isManager()
     {
-        if($this->role_id == '0') return false;
-        return true ;
-    }  
+        if ($this->role_id == '0') return false;
+        return true;
+    }
 
     public function Ripcheck()
     {
         return $this->hasMany(Ripcheck::class);
-    }  
+    }
+
+    public function Votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
 }
