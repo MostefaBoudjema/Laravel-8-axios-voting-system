@@ -34,7 +34,8 @@ class RipcheckController extends Controller
             })
             ->orderBy('rip_status', 'asc')
             ->orderBy('ripchecks.id', 'asc')
-            ->paginate(7);
+            ->get();
+            // ->paginate(7);
         return view('admin.Ripcheck.index', compact('Ripchecks'));
     }
     // public function trustedOld()

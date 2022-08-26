@@ -108,7 +108,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{ $Ripchecks->render('pagination::bootstrap-4') }}
+                {{-- {{ $Ripchecks->render('pagination::bootstrap-4') }} --}}
             </div>
         </div>
     </div>
