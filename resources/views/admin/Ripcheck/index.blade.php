@@ -39,6 +39,8 @@
                             @if (Auth::user()->isAdmin())
                                 {{-- <th scope="col">Status</th> --}}
                                 <th scope="col">Added by</th>
+                                <th scope="col">V+</th>
+                                <th scope="col">V-</th>
                                 <th scope="col">Votes</th>
                             @endif
                             <th scope="col">+/-</th>
@@ -47,6 +49,9 @@
                     <tbody id="tbody">
                         @foreach ($Ripchecks as $Ripcheck)
                             @php
+                                // $vote = '77';
+                                $voteP = $Ripcheck->GetVoteP($Ripcheck->Votes);
+                                $voteN = $Ripcheck->GetVoteN($Ripcheck->Votes)*-1;
                                 $vote = $Ripcheck->GetVote($Ripcheck->Votes);
                             @endphp
                             @if ($vote > 0)
@@ -79,7 +84,9 @@
                                 @if (Auth::user()->isAdmin())
                                     {{-- <td>{{ $Ripcheck->getStatus() }}</td> --}}
                                     <td>{{ $Ripcheck->name ?? '/' }}</td>
-                                    <td>{{ $vote ?: '0' }}</td>
+                                    <td>{{ $voteP ?: '0' }}</td>
+                                    <td>{{ $voteN ?: '0' }}</td>
+                                    <td><strong> {{ $vote ?: '0' }}</strong></td>
                                     {{-- <td>{{ $Ripcheck->Votes->count() ? $Ripcheck->Votes->count() : '0' }}</td> --}}
                                 @endif
                                 <td>

@@ -19,7 +19,12 @@ class RipcheckController extends Controller
      */
     public function index()
     {
-        $Ripchecks = Ripcheck::select('ripchecks.*', 'votes.sign', 'users.name')
+        $Ripchecks = Ripcheck
+        ::select('ripchecks.*', 'votes.sign', 'users.name')        
+        // ::select(DB::raw('ripchecks.*,votes.sign,users.name,SUM(sign) from votes GROUP by votes.ripcheck_id'))
+            // ->whereRaw("attendance_date > DATE(now() + INTERVAL - 12 MONTH)")
+            // ->groupByRaw('users.id')
+            // ->withCount('votes.sign')
             ->leftJoin('votes', function ($join) {
                 $join->on('ripchecks.id', '=', 'votes.ripcheck_id');
                 $join->where('votes.user_id', Auth::user()->id);
@@ -29,7 +34,7 @@ class RipcheckController extends Controller
             })
             ->orderBy('rip_status', 'asc')
             ->orderBy('ripchecks.id', 'asc')
-            ->paginate(10);
+            ->paginate(7);
         return view('admin.Ripcheck.index', compact('Ripchecks'));
     }
     // public function trustedOld()
@@ -58,11 +63,20 @@ class RipcheckController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
-        $Ripchecks = Ripcheck::where('rip_number', 'LIKE', "%$query%")
+        $Ripchecks = Ripcheck
+        ::select('ripchecks.*', 'votes.sign', 'users.name')
+            ->leftJoin('votes', function ($join) {
+                $join->on('ripchecks.id', '=', 'votes.ripcheck_id');
+                $join->where('votes.user_id', Auth::user()->id);
+            })
+            ->leftJoin('users', function ($join) {
+                $join->on('ripchecks.rip_user_id', '=', 'users.id');
+            })
+            ->where('rip_number', 'LIKE', "%$query%")
             ->orWhere('rip_name', 'LIKE', "%$query%")
             ->orWhere('rip_email', 'LIKE', "%$query%")
             ->orderBy('id', 'asc')
-            ->paginate(10);
+            ->paginate(20);
         return view('admin.Ripcheck.index', compact('Ripchecks'));
     }
 

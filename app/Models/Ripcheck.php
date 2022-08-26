@@ -44,9 +44,26 @@ class Ripcheck extends Model
     public function GetVote($rip = '')
     {
         if (empty($rip[0]['ripcheck_id'])) return '0';
+        // return '99';
         return count(Vote::where('ripcheck_id', $rip[0]['ripcheck_id'])->where('sign', "1")
             ->get()
             ->toArray()) - count(Vote::where('ripcheck_id', $rip[0]['ripcheck_id'])->where('sign', "-1")
+            ->get()
+            ->toArray());
+    }
+    public function GetVoteP($rip = '')
+    {
+        if (empty($rip[0]['ripcheck_id'])) return '0';
+        // return '99';
+        return count(Vote::where('ripcheck_id', $rip[0]['ripcheck_id'])->where('sign', "1")
+            ->get()
+            ->toArray());
+    }
+    public function GetVoteN($rip = '')
+    {
+        if (empty($rip[0]['ripcheck_id'])) return '0';
+        // return '99';
+        return count(Vote::where('ripcheck_id', $rip[0]['ripcheck_id'])->where('sign', "-1")
             ->get()
             ->toArray());
     }
