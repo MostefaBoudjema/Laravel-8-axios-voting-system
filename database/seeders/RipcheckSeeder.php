@@ -80,7 +80,7 @@ class RipcheckSeeder extends Seeder
         ];
 
         foreach ($items as $item) {
-            ripcheck::create($item);
+            Ripcheck::create($item);
         }
     }
 }
