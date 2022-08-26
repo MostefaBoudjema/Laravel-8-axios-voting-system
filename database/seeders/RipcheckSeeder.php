@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\ripcheck;
+use App\Models\Ripcheck;
 use Illuminate\Database\Seeder;
 
 class RipcheckSeeder extends Seeder
