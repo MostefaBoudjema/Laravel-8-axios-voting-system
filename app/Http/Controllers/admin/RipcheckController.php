@@ -19,23 +19,24 @@ class RipcheckController extends Controller
      */
     public function index()
     {
+        
         $Ripchecks = Ripcheck
-        ::select('ripchecks.*', 'votes.sign', 'users.name')        
+        ::select('ripchecks.*', 'votes.sign')        
+        // ::select('ripchecks.*', 'votes.sign', 'users.name')        
         // ::select(DB::raw('ripchecks.*,votes.sign,users.name,SUM(sign) from votes GROUP by votes.ripcheck_id'))
             // ->whereRaw("attendance_date > DATE(now() + INTERVAL - 12 MONTH)")
             // ->groupByRaw('users.id')
             // ->withCount('votes.sign')
+            // ->leftJoin('users', function ($join) {
+            //     $join->on('ripchecks.rip_user_id', '=', 'users.id ');
+            // })
             ->leftJoin('votes', function ($join) {
                 $join->on('ripchecks.id', '=', 'votes.ripcheck_id');
                 $join->where('votes.user_id', Auth::user()->id);
             })
-            ->leftJoin('users', function ($join) {
-                $join->on('ripchecks.rip_user_id', '=', 'users.id');
-            })
             ->orderBy('rip_status', 'asc')
             ->orderBy('ripchecks.id', 'asc')
-            ->get();
-            // ->paginate(7);
+            ->paginate(7);
         return view('admin.Ripcheck.index', compact('Ripchecks'));
     }
     // public function trustedOld()

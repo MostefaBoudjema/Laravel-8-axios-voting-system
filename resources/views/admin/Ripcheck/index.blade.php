@@ -41,8 +41,8 @@
                                 <th scope="col">Added by</th>
                                 <th scope="col">V+</th>
                                 <th scope="col">V-</th>
-                                <th scope="col">Votes</th>
                             @endif
+                            <th scope="col">Votes</th>
                             <th scope="col">+/-</th>
                         </tr>
                     </thead>
@@ -51,7 +51,7 @@
                             @php
                                 // $vote = '77';
                                 $voteP = $Ripcheck->GetVoteP($Ripcheck->Votes);
-                                $voteN = $Ripcheck->GetVoteN($Ripcheck->Votes)*-1;
+                                $voteN = $Ripcheck->GetVoteN($Ripcheck->Votes) * -1;
                                 $vote = $Ripcheck->GetVote($Ripcheck->Votes);
                             @endphp
                             @if ($vote > 0)
@@ -86,9 +86,9 @@
                                     <td>{{ $Ripcheck->name ?? '/' }}</td>
                                     <td>{{ $voteP ?: '0' }}</td>
                                     <td>{{ $voteN ?: '0' }}</td>
-                                    <td><strong> {{ $vote ?: '0' }}</strong></td>
                                     {{-- <td>{{ $Ripcheck->Votes->count() ? $Ripcheck->Votes->count() : '0' }}</td> --}}
                                 @endif
+                                <td><strong> {{ $vote ?: '0' }}</strong></td>
                                 <td>
                                     <form action="{{ route('Ripcheck.vote') }}" id="form-js">
                                         <select class="form-select " name="vote" id="mySelect"
@@ -108,7 +108,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{-- {{ $Ripchecks->render('pagination::bootstrap-4') }} --}}
+                {{ $Ripchecks->render('pagination::bootstrap-4') }}
             </div>
         </div>
     </div>

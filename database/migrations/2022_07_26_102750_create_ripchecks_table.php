@@ -19,7 +19,7 @@ class CreateRipchecksTable extends Migration
             $table->string('rip_number')->unique();;
             $table->string('rip_phone')->nullable();
             $table->string('rip_status');  
-            $table->string('rip_user_id');  
+            $table->foreignId('rip_user_id'); 
             $table->string('rip_email')->nullable();  
             // $table->string('rip_vote')->nullable();  
             // $table->string('rip_email')->unique()->nullable();  
