@@ -66,14 +66,15 @@ class RipcheckController extends Controller
     {
         $query = $request->input('query');
         $Ripchecks = Ripcheck
-        ::select('ripchecks.*', 'votes.sign', 'users.name')
+        ::select('ripchecks.*', 'votes.sign')
+        // ::select('ripchecks.*', 'votes.sign', 'users.name')
             ->leftJoin('votes', function ($join) {
                 $join->on('ripchecks.id', '=', 'votes.ripcheck_id');
                 $join->where('votes.user_id', Auth::user()->id);
             })
-            ->leftJoin('users', function ($join) {
-                $join->on('ripchecks.rip_user_id', '=', 'users.id');
-            })
+            // ->leftJoin('users', function ($join) {
+            //     $join->on('ripchecks.rip_user_id', '=', 'users.id');
+            // })
             ->where('rip_number', 'LIKE', "%$query%")
             ->orWhere('rip_name', 'LIKE', "%$query%")
             ->orWhere('rip_email', 'LIKE', "%$query%")
