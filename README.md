@@ -10,12 +10,17 @@
 ## Screenshot
 
 ## admin
+<div'>
     <img src="https://github.com/mostfa16/Laravel_rip_check/blob/master/Screenshots/admin.JPG?raw=true" style='width:60%;height:60%; display:flex; margin-bottom:20px'>
+</div>
 ## manager
+<div'>
     <img src="https://github.com/mostfa16/Laravel_rip_check/blob/master/Screenshots/manager.JPG?raw=true" style='width:60%;height:60%; display:flex; margin-bottom:20px'>
+</div>
 ## simple user
+<div'>
     <img src="https://github.com/mostfa16/Laravel_rip_check/blob/master/Screenshots/user.JPG?raw=true" style='width:60%;height:60%; display:flex; margin-bottom:20px'>
-
+</div>
 
 ## About Laravel
 
