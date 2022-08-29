@@ -14,3 +14,6 @@ yarn-error.log
 /.idea
 /.vscode
 PROBLEM.html
+.envPSgress.txt
+resources/js/like.js.bak
+resources/js/like.js

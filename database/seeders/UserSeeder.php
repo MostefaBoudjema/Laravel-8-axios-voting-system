@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             [
                 'id' => 1,
                 'name' => 'Admin',
-                'email' => 'Admin@gmail.com',
+                'email' => 'admin@gmail.com',
                 'ip_adresse' => '127.0.0.1',
                 'password' => Hash::make('123456789'),
                 'role_id' => 1,//admin
