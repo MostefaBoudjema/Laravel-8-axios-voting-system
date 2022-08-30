@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+            {{ config('app.name', 'Rip check DZ') }}
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -15,6 +15,13 @@
                 <li> <a class="nav-link" href="{{ route('user.Ripcheck.index') }}">
                         {{ __('Rip') }}
                     </a></li>
+                @auth
+                    @if (Auth::user()->isAdmin())
+                        <li> <a class="nav-link" href="{{ route('admin.users.index') }}">
+                                {{ __('Users') }}
+                            </a></li>
+                    @endif
+                @endauth
                 {{-- <li> <a class="nav-link" href="{{ route('user.Ripcheck.trusted') }}">
                         {{ __('Trusted') }}
                     </a></li>

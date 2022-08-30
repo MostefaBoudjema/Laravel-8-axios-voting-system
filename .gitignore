@@ -17,3 +17,11 @@ PROBLEM.html
 .envPSgress.txt
 resources/js/like.js.bak
 resources/js/like.js
+resources/views/admin/permissions/create.blade.php
+resources/views/admin/permissions/edit.blade.php
+resources/views/admin/permissions/index.blade.php
+resources/views/admin/permissions/show.blade.php
+resources/views/admin/roles/create.blade.php
+resources/views/admin/roles/edit.blade.php
+resources/views/admin/roles/index.blade.php
+resources/views/admin/roles/show.blade.php

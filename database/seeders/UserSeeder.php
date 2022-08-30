@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
         $items = [
             [
                 'id' => 1,
-                'name' => 'Admin',
+                'name' => 'admin',
                 'email' => 'admin@gmail.com',
                 'ip_adresse' => '127.0.0.1',
                 'password' => Hash::make('123456789'),
@@ -26,16 +26,16 @@ class UserSeeder extends Seeder
                 'remember_token' => '',
             ], [
                 'id' => 2,
-                'name' => 'User2',
-                'email' => 'user2@gmail.com',
+                'name' => 'manager',
+                'email' => 'manager@gmail.com',
                 'ip_adresse' => '127.0.0.1',
                 'password' => Hash::make('123456789'),
                 'role_id' => 2,//manager
                 'remember_token' => '',
             ], [
                 'id' => 3,
-                'name' => 'User3',
-                'email' => 'User3@gmail.com',
+                'name' => 'user',
+                'email' => 'user@gmail.com',
                 'ip_adresse' => '127.0.0.1',
                 'password' => Hash::make('123456789'),
                 'role_id' => 0,//simple user

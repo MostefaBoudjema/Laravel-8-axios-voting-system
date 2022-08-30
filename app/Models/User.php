@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'role_id',
         'password',
         'ip_adresse',
     ];
@@ -68,5 +69,11 @@ class User extends Authenticatable
     public function Votes()
     {
         return $this->hasMany(Vote::class);
+    }
+    public function RoleName($id)
+    {
+        if($id==0) return 'user';
+        else if ($id==1) return 'Admin';
+        return 'Manager';
     }
 }

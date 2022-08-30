@@ -23,6 +23,8 @@ Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => ['auth']], fu
 });
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
     // Route::resource('Ripcheck', 'RipcheckController');
-    Route::get('/Ripcheck', [App\Http\Controllers\admin\RipcheckController::class, 'create'])->name('Ripcheck.create');
-    Route::post('/Ripcheck', [App\Http\Controllers\admin\RipcheckController::class, 'store'])->name('Ripcheck.store');
+    Route::resource('Ripcheck', App\Http\Controllers\admin\RipcheckController::class);
+    Route::resource('users', App\Http\Controllers\admin\UsersController::class);
+    // Route::get('/Ripcheck', [App\Http\Controllers\admin\RipcheckController::class, 'create'])->name('Ripcheck.create');
+    // Route::post('/Ripcheck', [App\Http\Controllers\admin\RipcheckController::class, 'store'])->name('Ripcheck.store');
 });
