@@ -20,6 +20,9 @@
                         <li> <a class="nav-link" href="{{ route('admin.users.index') }}">
                                 {{ __('Users') }}
                             </a></li>
+                        <li> <a class="nav-link" href="/telescope">
+                                {{ __('Telescope') }}
+                            </a></li>
                     @endif
                 @endauth
                 {{-- <li> <a class="nav-link" href="{{ route('user.Ripcheck.trusted') }}">
