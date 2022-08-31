@@ -70,7 +70,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Vote::class);
     }
-    public function RoleName($id)
+    public static function RoleName($id)
     {
         if($id==0) return 'user';
         else if ($id==1) return 'Admin';
