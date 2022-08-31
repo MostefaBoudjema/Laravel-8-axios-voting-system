@@ -11,6 +11,7 @@
 
 <h3>Admin:</h3>
     <img src="https://github.com/mostfa16/Laravel_rip_check/blob/master/Screenshots/admin.JPG?raw=true" style=' display:flex; margin-bottom:20px'>
+    <img src="https://github.com/mostfa16/Laravel_rip_check/blob/master/Screenshots/admin_users.JPG?raw=true" style=' display:flex; margin-bottom:20px'>
  <h3>Manager:</h3>   
     <img src="https://github.com/mostfa16/Laravel_rip_check/blob/master/Screenshots/manager.JPG?raw=true" style=' display:flex; margin-bottom:20px'>
 <h3>Simple User:</h3>
