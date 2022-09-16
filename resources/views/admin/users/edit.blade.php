@@ -44,7 +44,7 @@
                             <option value="2">Manager</option>
                         </select>
                         <input class="form-control {{ $errors->has('role_id') ? 'is-invalid' : '' }}" type="text"
-                        name="role_id" id="role_id" value="{{ old('role_id', App\Models\User::RoleName($user->role_id)) }}" required>
+                         value="{{ old('role_id', App\Models\User::RoleName($user->role_id)) }}" required>
 
                         @if ($errors->has('role_id'))
                             <div class="invalid-feedback">
