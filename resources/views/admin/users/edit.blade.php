@@ -32,34 +32,20 @@
                         @endif
                         <span class="help-block">{{ trans('cruds.user.fields.email_helper') }}</span>
                     </div>
-                    {{-- <div class="form-group">
-                        <label class="required" for="password">{{ trans('cruds.user.fields.password') }}</label>
-                        <input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password"
-                            name="password" id="password">
-                        @if ($errors->has('password'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('password') }}
-                            </div>
-                        @endif
-                        <span class="help-block">{{ trans('cruds.user.fields.password_helper') }}</span>
-                    </div> --}}
                     <div class="form-group">
                         <label class="required" for="roles">{{ trans('cruds.user.fields.roles') }}</label>
-                        {{-- <div style="padding-bottom: 4px">
-                            <span class="btn btn-info btn-xs select-all"
-                                style="border-radius: 0">{{ trans('global.select_all') }}</span>
-                            <span class="btn btn-info btn-xs deselect-all"
-                                style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
-                        </div> --}}
                         <select class="form-control 
                         {{-- {{ $errors->has('role_id') ? 'is-invalid' : '' }} --}}
-                        " name="role_id"
-                            id="role_id"  required>
+                        "
+                            name="role_id" id="role_id" required>
                             <option value="">--</option>
                             <option value="0">User</option>
                             <option value="1">Admin</option>
                             <option value="2">Manager</option>
                         </select>
+                        <input class="form-control {{ $errors->has('role_id') ? 'is-invalid' : '' }}" type="text"
+                        name="role_id" id="role_id" value="{{ old('role_id', App\Models\User::RoleName($user->role_id)) }}" required>
+
                         @if ($errors->has('role_id'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('role_id') }}
